@@ -26,3 +26,99 @@ npm install swagger-ui-react
 
 # Install json-server to handle your db.json
 npm install json-server
+### Step 2: Prepare your Dummy Data (`db.json`)
+Create a `db.json` file in your root directory. This acts as your "Third-Party" data source for learning purposes.
+
+```json
+{
+  "company": { "name": "Techverse" },
+  "parties": [],
+  "items": [],
+  "invoices": []
+}
+### Step 3: Configure the API Specification (swagger.json)
+
+Create a file named `swagger.json` inside your **public** folder. This manual configuration serves as the "source of truth" that tells Swagger how to map and interact with your dummy data.
+
+```json
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Techverse Inventory API",
+    "version": "1.0.0",
+    "description": "Interactive documentation for learning Swagger with dummy db.json data"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000",
+      "description": "Local JSON Server (Dummy Data Source)"
+    }
+  ],
+  "paths": {
+    "/items": {
+      "get": {
+        "summary": "Retrieve all inventory items",
+        "responses": {
+          "200": {
+            "description": "A list of items from db.json",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "integer" },
+                      "name": { "type": "string" },
+                      "price": { "type": "number" },
+                      "quantity": { "type": "integer" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/parties": {
+      "get": {
+        "summary": "Fetch customer and supplier details",
+        "responses": {
+          "200": { "description": "Success" }
+        }
+      }
+    }
+  }
+}
+### Step 4: Create the Documentation Component
+Create a React component (e.g., `src/pages/ApiDocs.jsx`) to render the interface within your application.
+
+```jsx
+import SwaggerUI from "swagger-ui-react";
+import "swagger-ui-react/swagger-ui.css";
+
+const ApiDocs = () => {
+  return (
+    <div style={{ background: "white", minHeight: "100vh" }}>
+      {/* This component reads the JSON file from your public folder */}
+      <SwaggerUI url="/swagger.json" />
+    </div>
+  );
+};
+
+export default ApiDocs;
+---
+
+### Step 5: Update Scripts in package.json
+This step ensures you can run your "Backend" (the JSON file) and your "Frontend" (React) at the same time.
+
+```markdown
+### Step 5: Update Scripts in `package.json`
+Add a command to your `package.json` to run your mock server easily alongside Vite.
+
+```json
+"scripts": {
+  "dev": "vite",
+  "server": "json-server --watch db.json --port 5000"
+}

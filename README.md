@@ -1,37 +1,28 @@
-# 📈 Professional Trading Chart Component
+# Techverse: Swagger API Documentation Module
 
-A high-performance, responsive financial charting application built with **React 19**, **Vite**, and **Lightweight Charts**. This project was developed as part of a technical internship exercise to demonstrate advanced DOM manipulation, real-time data visualization, and technical analysis integration.
+This project is a dedicated "Day 3" study on implementing **Swagger (OpenAPI)** for RESTful APIs. It demonstrates how to integrate professional documentation into a React/Vite frontend using dummy data.
 
-## 🚀 Key Features
+## ❓ What is Swagger?
+**Swagger** is a suite of tools built around the **OpenAPI Specification** that helps developers design, build, and document RESTful APIs. 
+- **OpenAPI** is the "blueprint" or standard (rules) for the API.
+- **Swagger** is the "tool" that reads those rules to create a beautiful, interactive interface.
 
-* **Dynamic Candlestick Rendering**: Utilizes a Canvas-based engine for buttery-smooth zooming and panning.
-* **Technical Indicators**: Integrated support for:
-    * **SMA** (Simple Moving Average)
-    * **EMA** (Exponential Moving Average)
-    * **VWAP** (Volume Weighted Average Price)
-    * **Bollinger Bands** (Upper, Lower, and Basis lines)
-* **Responsive Design**: Automatically recalibrates `clientWidth` on window resize using optimized event listeners.
-* **Interactive HUD**: Real-time Heads-Up Display showing Open, High, Low, and Close (OHLC) values on crosshair hover.
-* **Smart Cleanup**: Implements strict memory management to prevent memory leaks and duplicate chart instances in React Strict Mode.
+## 🚀 Why Use Swagger?
+- **Interactive Documentation:** Instead of static text, users can actually "Try it out" and send real requests to the server from the browser.
+- **Single Source of Truth:** The `swagger.json` file ensures the frontend and backend teams are always looking at the same API requirements.
+- **Faster Testing:** You don't need external tools like Postman for basic testing; everything is built into your project.
+- **Standardization:** It uses the industry-standard OpenAPI 3.0 format, making your project professional and scalable.
 
-## 🛠️ Tech Stack
+---
 
-| Technology | Purpose |
-| :--- | :--- |
-| **React 19** | UI Framework & Component Logic |
-| **Lightweight Charts** | High-performance Canvas Charting |
-| **TechnicalIndicators** | Financial math & formula logic |
-| **Tailwind CSS** | Modern Slate-themed styling |
-| **Vite** | Lightning-fast development build tool |
+## 🛠 Implementation Guide
 
-## 📂 Project Structure
+### Step 1: Prerequisites & Installation
+Install the necessary packages for the UI and the mock backend server.
 
-* `src/components/TradingChart.jsx` - The core charting engine and UI.
-* `src/utils/indicators.js` - Technical analysis logic and data mapping.
-* `src/utils/generateMockTradingData.js` - Simulated market data generator with volatility logic.
+```bash
+# Install the Swagger UI component for React
+npm install swagger-ui-react
 
-## ⚙️ Installation & Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone [https://github.com/nitesh-chaudhary8740/Netbeans-Day2-TradingChart.git](https://github.com/nitesh-chaudhary8740/Netbeans-Day2-TradingChart.git)
+# Install json-server to handle your db.json
+npm install json-server
